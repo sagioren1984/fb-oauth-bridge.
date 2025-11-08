@@ -6,17 +6,17 @@ dotenv.config();
 const app = express();
 app.use(express.json());
 // לאפשר קריאה מה-UI שלך בלובייבל
-const { FRONTEND_URL } = process.env;
-app.use(cors({ origin: FRONTEND_URL ? FRONTEND_URL : true }));
 const {
   FACEBOOK_APP_ID,
   FACEBOOK_APP_SECRET,
-  SERVER_BASE_URL, // ה-URL שתקבל מ-Render אחרי הדיפלוי הראשון
-  FRONTEND_URL: FE,
-  REDIRECT_URI, // נקבע אחרי שנדע את כתובת ה-Render
+  SERVER_BASE_URL,
+  FRONTEND_URL,
   FB_API_VERSION = "v19.0",
   FB_SCOPES = "public_profile,email,pages_read_engagement,pages_read_user_content,pages_manage_posts,instagram_basic",
 } = process.env;
+
+const REDIRECT_URI = "https://fb-oauth-bridge.onrender.com/api/oauth/facebook/callback";
+
 
 // 1) התחלת OAuth
 app.get("/api/oauth/facebook/start", (_req, res) => {
