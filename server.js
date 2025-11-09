@@ -12,7 +12,7 @@ const {
   SERVER_BASE_URL,
   FRONTEND_URL,
   FB_API_VERSION = "v19.0",
-  FB_SCOPES = "public_profile,email,pages_read_engagement,pages_read_user_content,pages_manage_posts,instagram_basic",
+  FB_SCOPES = "public_profile,emai",
 } = process.env;
 
 const REDIRECT_URI = "https://fb-oauth-bridge.onrender.com/api/oauth/facebook/callback";
